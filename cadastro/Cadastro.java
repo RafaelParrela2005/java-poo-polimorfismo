@@ -1,26 +1,30 @@
 package cadastro;
 
+import pessoa.Pessoa;
 import pessoa.PessoaFisica;
+import pessoa.PessoaJuridica;
 
 public class Cadastro {
     int cont, quantidade;
-    PessoaFisica[] pessoas;
+    Pessoa[] pessoas;
+
 
     public Cadastro(int quantidade) {
         this.cont = 0;
         this.quantidade = quantidade;
-        pessoas = new PessoaFisica[quantidade];
+        pessoas = new Pessoa[quantidade];
     }
 
-    public void cadastrar(PessoaFisica pessoaFisica) {
+    public void cadastrar(Pessoa pessoa) {
         if(this.cont < this.quantidade)
-            pessoas[cont++] = pessoaFisica;
+           pessoas[this.cont++] = pessoa;
     }
 
     public String toString() {
         String mensagem = "--- Pessoas Cadastradas: ---\n";
-        for(PessoaFisica pessoaFisica : pessoas)
-            mensagem += pessoaFisica.toString() + "\n";
+        for(Pessoa pessoa : pessoas)
+            mensagem += pessoa.toString() + "\n";
+            
         return mensagem;
     }
 }
